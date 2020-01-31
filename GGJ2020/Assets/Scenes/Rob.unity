@@ -323,11 +323,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3adac7152eb28ae4881093a462b10eaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
-  sensitivity: 2
+  speed: 5
+  sensitivity: 5
   eyes: {fileID: 717701414}
-  the_CUBE: {fileID: 0}
-  the_CUBE2: {fileID: 0}
 --- !u!1 &340750626
 GameObject:
   m_ObjectHideFlags: 0

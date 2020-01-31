@@ -10,8 +10,6 @@ public class Player_Movement : MonoBehaviour {
     CharacterController player;
 
     public GameObject eyes;
-    public GameObject the_CUBE;
-     public GameObject the_CUBE2;
     bool is_moving;
 
     float moveFB;
@@ -46,7 +44,7 @@ public class Player_Movement : MonoBehaviour {
       
         
         transform.Rotate(0, rotX, 0);
-        eyes.transform.Rotate(rotY, rotX, 0);
+        eyes.transform.Rotate(rotY, 0, 0);
 
 
         movement = transform.rotation * movement;
