@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Player_Pick_Up : MonoBehaviour
 {
-    
+    Player_GiveBack p_giveBack;
     Pick_up pick_Up;
     Place_Frog place_Frog;
-    GameObject leftItem;
-    GameObject RightItem;
+   public GameObject leftItem;
+    public GameObject RightItem;
     GameObject collisonItem;
     bool player_PU;
     bool player_Place;
@@ -50,6 +50,12 @@ public class Player_Pick_Up : MonoBehaviour
                         pick_Up.pickupL = true;
                         player_PU = false;
                         left_hand_full = true;
+
+                        //if (collisonItem.GetComponent<GiveBack>() != null)
+                        //{
+                        //    p_giveBack = collisonItem.GetComponent<Player_GiveBack>();
+                        //    p_giveBack.Left = collisonItem;
+                        //}
                     }
 
 
@@ -88,6 +94,12 @@ public class Player_Pick_Up : MonoBehaviour
                         pick_Up.pickupR = true;
                         player_PU = false;
                         right_hand_full = true;
+
+                        //if(collisonItem.GetComponent<GiveBack>() != null)
+                        //{
+                        //    p_giveBack = collisonItem.GetComponent<Player_GiveBack>();
+                        //    p_giveBack.right = collisonItem;
+                        //}
                     }
 
 
@@ -98,7 +110,6 @@ public class Player_Pick_Up : MonoBehaviour
             {
                 place_Frog.PlaceOnStand(RightItem);
 
-               
             }
       
         }
@@ -113,6 +124,8 @@ public class Player_Pick_Up : MonoBehaviour
             pick_Up = other.gameObject.GetComponent<Pick_up>();
 
             player_PU = true;
+
+            
         }
 
         if(other.gameObject.GetComponent<Place_Frog>()!=null)
