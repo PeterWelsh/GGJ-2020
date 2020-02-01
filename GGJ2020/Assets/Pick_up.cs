@@ -7,7 +7,7 @@ public class Pick_up : MonoBehaviour
     private Vector3 startingPos;
     public Vector3 pickup_posL;
     public Vector3 pickup_posR;
-
+    Material material;
     public Vector3 pickup_scale;
     public Vector3 drop_scale;
     public bool pickupL;
@@ -22,6 +22,7 @@ public class Pick_up : MonoBehaviour
     void Start()
     {
         startingPos = transform.position;
+        GetComponent<Renderer>().sharedMaterial.SetFloat("_OutlineSize", 0.0f);
     }
 
     // Update is called once per frame
@@ -70,7 +71,10 @@ public class Pick_up : MonoBehaviour
         if (other.gameObject.GetComponent<Player_Movement>() != null)
         {
             transform.GetChild(0).gameObject.SetActive(true);
-     
+
+            GetComponent<Renderer>().sharedMaterial.SetFloat("_OutlineSize", 2.0f);
+
+
         }
 
     }
@@ -81,7 +85,7 @@ public class Pick_up : MonoBehaviour
         {
             transform.GetChild(0).gameObject.SetActive(false);
 
-
+            GetComponent<Renderer>().sharedMaterial.SetFloat("_OutlineSize", 0.0f);
         }
 
     }
