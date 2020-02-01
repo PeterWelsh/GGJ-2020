@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 10b3d888f3777f1439069c0fd90656c3, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -107,8 +107,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b617c72649c3ba64e97d1d91629bb523, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickup_posL: {x: -0.244, y: 0.493, z: 1.007}
-  pickup_posR: {x: 0.279, y: 0.493, z: 1.007}
+  pickup_posL: {x: -0.236, y: 0, z: 0.984}
+  pickup_posR: {x: 0.253, y: 0, z: 0.984}
   pickup_scale: {x: 0.1, y: 0.1, z: 0.1}
   drop_scale: {x: 0.4, y: 0.4, z: 0.4}
   pickupL: 0
