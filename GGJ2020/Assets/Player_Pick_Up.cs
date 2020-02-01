@@ -11,6 +11,7 @@ public class Player_Pick_Up : MonoBehaviour
     bool player_PU;
     bool hands_full;
     bool left_hand_full;
+    bool right_hand_full;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,59 +23,71 @@ public class Player_Pick_Up : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(0).Equals(true))
         {
-            if(hands_full == false)
+            if (left_hand_full == true)
             {
 
-                if (player_PU == true)
-                {
-                    if(left_hand_full == false)
-                    {
-                        leftItem = collisonItem;
-                        pick_Up.pickupL = true;
-                        player_PU = false;
-                        left_hand_full = true;
-                    }
+                Debug.Log("Drop");
+                pick_Up = leftItem.GetComponent<Pick_up>();
+                pick_Up.drop = true;
+                left_hand_full = false;
 
-                   else if (left_hand_full == true)
-                    {
-                        RightItem = collisonItem;
-                        pick_Up.pickupR = true;
-                        player_PU = false;
-                        hands_full = true;
-                    }
+
+            }
+
+            else if (player_PU == true)
+            {
+                if (left_hand_full == false)
+                {
+                    leftItem = collisonItem;
+                    pick_Up = leftItem.GetComponent<Pick_up>();
+                    pick_Up.pickupL = true;
+                    player_PU = false;
+                    left_hand_full = true;
                 }
 
-                
-            }
-            
 
+            }
+
+           
+               
         }
 
         if (Input.GetMouseButtonDown(1).Equals(true))
         {
-            if (left_hand_full == true)
-            {
-                pick_Up = leftItem.GetComponent<Pick_up>();
-                pick_Up.drop = true;
-                left_hand_full = false;
-            }
-
-            if (hands_full == true)
+              if (right_hand_full == true)
             {
                 pick_Up = RightItem.GetComponent<Pick_up>();
                 pick_Up.drop = true;
-                hands_full = false;
+                right_hand_full = false;
             }
 
-           
+            else if(player_PU == true)
+            {
+
+                if (right_hand_full == false)
+                {
+                    RightItem = collisonItem;
+                    pick_Up = RightItem.GetComponent<Pick_up>();
+                    pick_Up.pickupR = true;
+                    player_PU = false;
+                    right_hand_full = true;
+                }
+
+
+            }
+ 
+              
             
+
+           
+
+
         }
 
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
-       
         if (other.gameObject.GetComponent<Pick_up>() != null)
         {
             collisonItem = other.gameObject;
@@ -83,6 +96,28 @@ public class Player_Pick_Up : MonoBehaviour
             player_PU = true;
         }
     }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.GetComponent<Pick_up>() != null)
+        {
+            collisonItem = null;
+            pick_Up = null;
+
+            player_PU = false;
+        }
+    }
+    //private void OnTriggerEnter(Collider other)
+    //{
+
+    //    if (other.gameObject.GetComponent<Pick_up>() != null)
+    //    {
+    //        collisonItem = other.gameObject;
+    //        pick_Up = other.gameObject.GetComponent<Pick_up>();
+
+    //        player_PU = true;
+    //    }
+    //}
 
 
 }

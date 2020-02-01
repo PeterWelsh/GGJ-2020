@@ -33,9 +33,11 @@ public class Pick_up : MonoBehaviour
 
             transform.parent = null;
             transform.position = new Vector3(transform.position.x, 0.1f, transform.position.z);
-            Debug.Log("grab");
+            //Debug.Log("grab");
             drop = false;
-           
+            pickupL = false;
+            pickupR = false;
+
         }
 
         else if (pickupL == true)
