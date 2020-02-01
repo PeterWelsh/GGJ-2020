@@ -5,10 +5,14 @@ using UnityEngine;
 public class Pick_up : MonoBehaviour
 {
     private Vector3 startingPos;
-    public Vector3 pickup_pos;
-    public Vector3 pickup_rot;
+    public Vector3 pickup_posL;
+    public Vector3 pickup_posR;
+
     public Vector3 pickup_scale;
-    public bool pickup;
+    public Vector3 drop_scale;
+    public bool pickupL;
+    public bool pickupR;
+    public bool drop;
     public GameObject player;
     [SerializeField]
     private Canvas UI;
@@ -22,22 +26,64 @@ public class Pick_up : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
-        if (pickup == true)
+
+
+        if (drop == true)
+        {
+
+            transform.parent = null;
+            transform.position = new Vector3(transform.position.x, 0.1f, transform.position.z);
+            //Debug.Log("grab");
+            drop = false;
+            pickupL = false;
+            pickupR = false;
+
+        }
+
+        else if (pickupL == true)
         {
             transform.parent = player.transform;
-            transform.localPosition = pickup_pos;
+            transform.localPosition = pickup_posL;
             transform.localScale = pickup_scale;
-            
+            pickupL = false;
 
         }
 
-        if (pickup == false)
+        else if (pickupR == true)
         {
-            transform.parent = null;
+            transform.parent = player.transform;
+            transform.localPosition = pickup_posR;
+            transform.localScale = pickup_scale;
+            pickupR = false;
+
         }
 
-        
+
+
+
 
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.GetComponent<Player_Movement>() != null)
+        {
+            transform.GetChild(0).gameObject.SetActive(true);
+     
+        }
+
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.GetComponent<Player_Movement>() != null)
+        {
+            transform.GetChild(0).gameObject.SetActive(false);
+
+
+        }
+
+    }
+
+
 }
