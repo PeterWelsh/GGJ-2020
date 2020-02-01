@@ -10,47 +10,45 @@ public class Place_Frog : MonoBehaviour
     public GameObject Bluefrog;
     public GameObject Pinkfrog;
 
-  
-   public void PlaceOnStand(GameObject frog)
+    public GameObject GreenPose;
+    public GameObject RedPose;
+    public GameObject YellowPose;
+    public GameObject BluePose;
+    public GameObject PinkPose;
+
+
+    public void PlaceOnStand(GameObject frog)
     {
        if(frog == Greenfrog)
         {
             frog.transform.parent = null;
-            frog.transform.parent = gameObject.transform.GetChild(0);
-            frog.transform.localPosition = gameObject.transform.GetChild(0).localPosition;
+          
+            frog.transform.localPosition = GreenPose.transform.position;
             Debug.Log("Help");
             
         }
         if (frog == Yellowfrog)
         {
-
             frog.transform.parent = null;
-            frog.transform.parent = gameObject.transform.GetChild(1);
-            frog.transform.localPosition = gameObject.transform.GetChild(1).localPosition;
+            frog.transform.localPosition = YellowPose.transform.position;
             Debug.Log("Help");
         }
         if (frog == Redfrog)
         {
-
             frog.transform.parent = null;
-            frog.transform.parent = gameObject.transform.GetChild(2);
-            frog.transform.localPosition = gameObject.transform.GetChild(2).localPosition;
+            frog.transform.localPosition = RedPose.transform.position;
             Debug.Log("Help");
         }
         if (frog == Bluefrog)
         {
-
             frog.transform.parent = null;
-            frog.transform.parent = gameObject.transform.GetChild(3);
-            frog.transform.localPosition = gameObject.transform.GetChild(3).localPosition;
+            frog.transform.localPosition = BluePose.transform.position;
             Debug.Log("Help");
         }
         if (frog == Pinkfrog)
         {
-
             frog.transform.parent = null;
-            frog.transform.parent = gameObject.transform.GetChild(4);
-            frog.transform.localPosition = gameObject.transform.GetChild(4).localPosition;
+            frog.transform.localPosition = PinkPose.transform.position;
             Debug.Log("Help");
         }
         else
