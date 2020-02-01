@@ -13,7 +13,8 @@ public class Pick_up : MonoBehaviour
     public bool pickupL;
     public bool pickupR;
     public bool drop;
-    public GameObject player;
+    public GameObject LeftHand;
+    public GameObject RightHand;
     [SerializeField]
     private Canvas UI;
 
@@ -42,7 +43,7 @@ public class Pick_up : MonoBehaviour
 
         else if (pickupL == true)
         {
-            transform.parent = player.transform;
+            transform.parent = LeftHand.transform;
             transform.localPosition = pickup_posL;
             transform.localScale = pickup_scale;
             pickupL = false;
@@ -51,7 +52,7 @@ public class Pick_up : MonoBehaviour
 
         else if (pickupR == true)
         {
-            transform.parent = player.transform;
+            transform.parent = RightHand.transform;
             transform.localPosition = pickup_posR;
             transform.localScale = pickup_scale;
             pickupR = false;
