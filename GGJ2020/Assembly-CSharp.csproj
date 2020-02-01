@@ -66,6 +66,7 @@
     <Compile Include="Assets\FrogManager.cs" />
     <Compile Include="Assets\Object2Terrain.cs" />
     <Compile Include="Assets\Pick_up.cs" />
+    <Compile Include="Assets\Place_Frog.cs" />
     <Compile Include="Assets\Player_Pick_Up.cs" />
     <Compile Include="Assets\Scripts\GameplayManager.cs" />
     <None Include="Assets\_MK\MKToonFree\Shader\Inc\Outline\MKToonOutlineOnlyIO.cginc" />
