@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/MergedScene.unity
+- path: Assets/Scenes/RobTestScene.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
