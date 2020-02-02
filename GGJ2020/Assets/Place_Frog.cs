@@ -16,9 +16,12 @@ public class Place_Frog : MonoBehaviour
     public GameObject BluePose;
     public GameObject PinkPose;
 
+    ParticleSystem particle;
+
+
     bool green, red, blue, yellow, pink;
 
-
+    Pick_up pick;
 
     private void Update()
     {
@@ -34,8 +37,12 @@ public class Place_Frog : MonoBehaviour
        if(frog == Greenfrog)
         {
             frog.transform.parent = null;
-          
+            pick = frog.GetComponent<Pick_up>();
             frog.transform.localPosition = GreenPose.transform.position;
+            frog.transform.localRotation = GreenPose.transform.rotation;
+            particle = frog.transform.GetComponentInChildren<ParticleSystem>();
+            particle.Play();
+            pick.enabled = false;
 
             green = true;
             Debug.Log("Help");
@@ -45,6 +52,11 @@ public class Place_Frog : MonoBehaviour
         {
             frog.transform.parent = null;
             frog.transform.localPosition = YellowPose.transform.position;
+            frog.transform.localRotation = YellowPose.transform.rotation;
+            particle = frog.transform.GetComponentInChildren<ParticleSystem>();
+            particle.Play();
+            pick = frog.GetComponent<Pick_up>();
+            pick.enabled = false;
 
             yellow = true;
             Debug.Log("Help");
@@ -53,6 +65,11 @@ public class Place_Frog : MonoBehaviour
         {
             frog.transform.parent = null;
             frog.transform.localPosition = RedPose.transform.position;
+            frog.transform.localRotation = RedPose.transform.rotation;
+            particle = frog.transform.GetComponentInChildren<ParticleSystem>();
+            particle.Play();
+            pick = frog.GetComponent<Pick_up>();
+            pick.enabled = false;
 
             red = true;
             Debug.Log("Help");
@@ -60,7 +77,12 @@ public class Place_Frog : MonoBehaviour
         if (frog == Bluefrog)
         {
             frog.transform.parent = null;
+            pick = frog.GetComponent<Pick_up>();
             frog.transform.localPosition = BluePose.transform.position;
+            frog.transform.localRotation = BluePose.transform.rotation;
+            particle = frog.transform.GetComponentInChildren<ParticleSystem>();
+            particle.Play();
+            pick.enabled = false;
 
             blue = true;
             Debug.Log("Help");
@@ -69,6 +91,11 @@ public class Place_Frog : MonoBehaviour
         {
             frog.transform.parent = null;
             frog.transform.localPosition = PinkPose.transform.position;
+            frog.transform.localRotation = PinkPose.transform.rotation;
+            particle = frog.transform.GetComponentInChildren<ParticleSystem>();
+            particle.Play();
+            pick = frog.GetComponent<Pick_up>();
+            pick.enabled = false;
 
             pink = true; 
             Debug.Log("Help");
