@@ -16,6 +16,18 @@ public class Place_Frog : MonoBehaviour
     public GameObject BluePose;
     public GameObject PinkPose;
 
+    bool green, red, blue, yellow, pink;
+
+
+
+    private void Update()
+    {
+        if(green == true && red == true && blue == true &&  yellow == true && pink == true)
+        {
+            Debug.Log("YouWin");
+            //YOU WIN!
+        }
+    }
 
     public void PlaceOnStand(GameObject frog)
     {
@@ -24,6 +36,8 @@ public class Place_Frog : MonoBehaviour
             frog.transform.parent = null;
           
             frog.transform.localPosition = GreenPose.transform.position;
+
+            green = true;
             Debug.Log("Help");
             
         }
@@ -31,24 +45,32 @@ public class Place_Frog : MonoBehaviour
         {
             frog.transform.parent = null;
             frog.transform.localPosition = YellowPose.transform.position;
+
+            yellow = true;
             Debug.Log("Help");
         }
         if (frog == Redfrog)
         {
             frog.transform.parent = null;
             frog.transform.localPosition = RedPose.transform.position;
+
+            red = true;
             Debug.Log("Help");
         }
         if (frog == Bluefrog)
         {
             frog.transform.parent = null;
             frog.transform.localPosition = BluePose.transform.position;
+
+            blue = true;
             Debug.Log("Help");
         }
         if (frog == Pinkfrog)
         {
             frog.transform.parent = null;
             frog.transform.localPosition = PinkPose.transform.position;
+
+            pink = true; 
             Debug.Log("Help");
         }
         else
