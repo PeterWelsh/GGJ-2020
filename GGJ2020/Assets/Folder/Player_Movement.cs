@@ -72,12 +72,12 @@ public class Player_Movement : MonoBehaviour {
 
         if(is_crouching)
         {
-            Debug.Log("Crouched");
+            //Debug.Log("Crouched");
             player.height = startHeight / 2;
         }
         else
         {
-            Debug.Log("Uncrouched");
+            //Debug.Log("Uncrouched");
             player.height = startHeight;
         }
 
