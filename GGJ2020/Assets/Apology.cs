@@ -7,12 +7,16 @@ public class Apology : MonoBehaviour
     Friend_Status friend_;
     Player_Pick_Up player_Pick_Up;
     public GameObject GreenFrog;
+    AudioSource audio;
+    public AudioClip clip;
+    public AudioClip clip2;
     int bandnum;
 
     // Start is called before the first frame update
     void Start()
     {
         player_Pick_Up = GetComponent<Player_Pick_Up>();
+        audio = GetComponent<AudioSource>();
         bandnum = 0;
     }
 
@@ -21,8 +25,14 @@ public class Apology : MonoBehaviour
     {
         if (Input.GetKeyDown("e"))
         {
-            sorry(player_Pick_Up.leftItem, player_Pick_Up.RightItem);
-            sorry(player_Pick_Up.RightItem, player_Pick_Up.leftItem);
+            audio.clip = clip;
+            audio.Play();
+            if(player_Pick_Up.leftItem != null && player_Pick_Up.RightItem != null)
+            {
+                sorry(player_Pick_Up.leftItem, player_Pick_Up.RightItem);
+                sorry(player_Pick_Up.RightItem, player_Pick_Up.leftItem);
+            }
+            
         }
 
         if (bandnum >= 4)
@@ -59,10 +69,13 @@ public class Apology : MonoBehaviour
 
                     friend_.BackInBand = true;
                     bandnum++;
+
+                    
                 }
 
-
-
+                
+                audio.clip = clip2;
+                audio.Play();
 
 
 
