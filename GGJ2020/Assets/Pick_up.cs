@@ -28,7 +28,12 @@ public class Pick_up : MonoBehaviour
     void Start()
     {
         startingPos = transform.position;
-        GetComponent<Renderer>().sharedMaterial.SetFloat("_OutlineSize", 0.0f);
+        if (GetComponent<Renderer>() != null)
+        {
+            GetComponent<Renderer>().sharedMaterial.SetFloat("_OutlineSize", 0.0f);
+
+        }
+       
         box = GetComponent<Collider>();
         rigidbody = GetComponent<Rigidbody>();
     }
@@ -62,7 +67,10 @@ public class Pick_up : MonoBehaviour
             pickupL = false;
 
             in_hand = true;
-            GetComponent<Renderer>().sharedMaterial.SetFloat("_OutlineSize", 0.0f);
+            if (GetComponent<Renderer>() != null)
+            {
+                GetComponent<Renderer>().sharedMaterial.SetFloat("_OutlineSize", 0.0f);
+            }
         }
 
         else if (pickupR == true && in_hand == false)
@@ -74,8 +82,10 @@ public class Pick_up : MonoBehaviour
             transform.localScale = pickup_scale;
             pickupR = false;
             in_hand = true;
-            GetComponent<Renderer>().sharedMaterial.SetFloat("_OutlineSize", 0.0f);
-
+            if (GetComponent<Renderer>() != null)
+            {
+                GetComponent<Renderer>().sharedMaterial.SetFloat("_OutlineSize", 0.0f);
+            }
         }
 
 
@@ -91,7 +101,10 @@ public class Pick_up : MonoBehaviour
 
             if(in_hand == false)
             {
-                GetComponent<Renderer>().sharedMaterial.SetFloat("_OutlineSize", 2.0f);
+                if (GetComponent<Renderer>() != null)
+                {
+                    GetComponent<Renderer>().sharedMaterial.SetFloat("_OutlineSize", 2.0f);
+                }
             }
            
 
@@ -106,9 +119,11 @@ public class Pick_up : MonoBehaviour
     {
         if (other.gameObject.GetComponent<Player_Movement>() != null)
         {
-          
+            if (GetComponent<Renderer>() != null)
+            {
 
-            GetComponent<Renderer>().sharedMaterial.SetFloat("_OutlineSize", 0.0f);
+                GetComponent<Renderer>().sharedMaterial.SetFloat("_OutlineSize", 0.0f);
+            }
         }
 
     }
