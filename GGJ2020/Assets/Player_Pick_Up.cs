@@ -38,6 +38,11 @@ public class Player_Pick_Up : MonoBehaviour
                     pick_Up.drop = true;
                     left_hand_full = false;
 
+                    collisonItem = null;
+                    pick_Up = null;
+
+                    player_PU = false;
+
 
                 }
 
@@ -82,6 +87,10 @@ public class Player_Pick_Up : MonoBehaviour
                     pick_Up = RightItem.GetComponent<Pick_up>();
                     pick_Up.drop = true;
                     right_hand_full = false;
+                    collisonItem = null;
+                    pick_Up = null;
+
+                    player_PU = false;
                 }
 
                 else if (player_PU == true)
