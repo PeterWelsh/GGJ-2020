@@ -13,13 +13,14 @@ public class Pick_up : MonoBehaviour
     public Vector3 drop_scale;
     public bool pickupL;
     public bool pickupR;
-
-    private bool in_hand;
-    public bool drop;
+    BoxCollider box;
+    public bool in_hand;
+    public bool dropL;
+    public bool dropR;
     public GameObject LeftHand;
     public GameObject RightHand;
     public GameObject Player;
-    Collider box;
+   // Collider box;
     Rigidbody rigidbody;
     [SerializeField]
     private Canvas UI;
@@ -34,7 +35,7 @@ public class Pick_up : MonoBehaviour
 
         }
        
-        box = GetComponent<Collider>();
+        box = GetComponent<BoxCollider>();
         rigidbody = GetComponent<Rigidbody>();
     }
 
@@ -43,15 +44,34 @@ public class Pick_up : MonoBehaviour
     {
 
 
-        if (drop == true)
+        if (dropL == true && pickupL == false)
         {
-          
+            box.enabled = true;
+            rigidbody.useGravity = true;
+            rigidbody.isKinematic = false;
             transform.parent = null;
             transform.position = new Vector3(transform.position.x, Player.transform.position.y - 1f, transform.position.z);
             transform.rotation = new Quaternion(0.0f, 0.0f, 0.0f,0.0f);
-            //Debug.Log("grab");
-            drop = false;
+
+            dropL = false;
             pickupL = false;
+           
+            in_hand = false;
+
+        }
+
+        if (dropR == true && pickupR == false)
+        {
+           
+            box.enabled = true;
+            rigidbody.useGravity = true;
+            rigidbody.isKinematic = false;
+            transform.parent = null;
+            transform.position = new Vector3(transform.position.x, Player.transform.position.y, transform.position.z);
+            transform.rotation = new Quaternion(0.0f, 0.0f, 0.0f, 0.0f);
+
+            dropR = false;
+          
             pickupR = false;
             in_hand = false;
 
@@ -65,7 +85,9 @@ public class Pick_up : MonoBehaviour
             transform.localRotation = transform.rotation;
             transform.localScale = pickup_scale;
             pickupL = false;
-
+            box.enabled = false;
+            rigidbody.isKinematic = true;
+            rigidbody.useGravity = false;
             in_hand = true;
             if (GetComponent<Renderer>() != null)
             {
@@ -81,6 +103,9 @@ public class Pick_up : MonoBehaviour
             transform.localRotation = transform.rotation;
             transform.localScale = pickup_scale;
             pickupR = false;
+            box.enabled = false;
+            rigidbody.isKinematic = true;
+            rigidbody.useGravity = false;
             in_hand = true;
             if (GetComponent<Renderer>() != null)
             {
