@@ -42,7 +42,7 @@ public class Place_Frog : MonoBehaviour
 
         if(finished == true)
         {
-            Debug.Log("YouWin");
+           
             //YOU WIN!
             endScreen.SetActive(true);
             endButton.SetActive(true);
@@ -65,7 +65,7 @@ public class Place_Frog : MonoBehaviour
                 pick.enabled = false;
 
                 green = true;
-                Debug.Log("Help");
+              
 
             }
             if (frog == Yellowfrog)
@@ -79,7 +79,7 @@ public class Place_Frog : MonoBehaviour
                 pick.enabled = false;
 
                 yellow = true;
-                Debug.Log("Help");
+                
             }
             if (frog == Redfrog)
             {
@@ -92,7 +92,7 @@ public class Place_Frog : MonoBehaviour
                 pick.enabled = false;
 
                 red = true;
-                Debug.Log("Help");
+                
             }
             if (frog == Bluefrog)
             {
@@ -105,7 +105,7 @@ public class Place_Frog : MonoBehaviour
                 pick.enabled = false;
 
                 blue = true;
-                Debug.Log("Help");
+              
             }
             if (frog == Pinkfrog)
             {
@@ -118,11 +118,11 @@ public class Place_Frog : MonoBehaviour
                 pick.enabled = false;
 
                 pink = true;
-                Debug.Log("Help");
+               
             }
             else
             {
-                Debug.Log("FUCK");
+               
                 //nothing
             }
         }

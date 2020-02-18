@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 8380196952070953167}
   - component: {fileID: 7509245768969669190}
   - component: {fileID: 4040686454388926657}
+  - component: {fileID: 4419395552095492889}
   m_Layer: 0
   m_Name: frog
   m_TagString: Untagged
@@ -97,9 +98,9 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!65 &8380196952070953202
 BoxCollider:
@@ -132,7 +133,9 @@ MonoBehaviour:
   drop_scale: {x: 0.01, y: 0.01, z: 0.01}
   pickupL: 0
   pickupR: 0
-  drop: 0
+  in_hand: 0
+  dropL: 0
+  dropR: 0
   LeftHand: {fileID: 0}
   RightHand: {fileID: 0}
   Player: {fileID: 0}
@@ -247,6 +250,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BackInBand: 0
+--- !u!136 &4419395552095492889
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 535257293287556362}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 44.501144
+  m_Height: 97.00027
+  m_Direction: 1
+  m_Center: {x: 0, y: 48.026493, z: 7.338661}
 --- !u!1 &1799344229228577304
 GameObject:
   m_ObjectHideFlags: 0

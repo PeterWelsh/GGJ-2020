@@ -7,7 +7,7 @@ public class Player_Pick_Up : MonoBehaviour
     Player_GiveBack p_giveBack;
     Pick_up pick_Up;
     Place_Frog place_Frog;
-   public GameObject leftItem;
+    public GameObject leftItem;
     public GameObject RightItem;
     GameObject collisonItem;
     bool player_PU;
@@ -33,9 +33,9 @@ public class Player_Pick_Up : MonoBehaviour
                 if (left_hand_full == true)
                 {
 
-                    Debug.Log("Drop");
+                   
                     pick_Up = leftItem.GetComponent<Pick_up>();
-                    pick_Up.drop = true;
+                    pick_Up.dropL = true;
                     left_hand_full = false;
 
                     collisonItem = null;
@@ -85,7 +85,7 @@ public class Player_Pick_Up : MonoBehaviour
                 if (right_hand_full == true)
                 {
                     pick_Up = RightItem.GetComponent<Pick_up>();
-                    pick_Up.drop = true;
+                    pick_Up.dropR = true;
                     right_hand_full = false;
                     collisonItem = null;
                     pick_Up = null;
@@ -132,7 +132,11 @@ public class Player_Pick_Up : MonoBehaviour
             collisonItem = other.gameObject;
             pick_Up = other.gameObject.GetComponent<Pick_up>();
 
-            player_PU = true;
+            if(pick_Up.in_hand == false)
+            {
+                player_PU = true;
+            }
+           
 
             
         }
@@ -144,7 +148,7 @@ public class Player_Pick_Up : MonoBehaviour
 
             player_Place = true;
 
-            Debug.Log("place");
+           
         }
 
     }
@@ -164,7 +168,7 @@ public class Player_Pick_Up : MonoBehaviour
             
             player_Place = false;
 
-            Debug.Log("leave");
+           
         }
     }
     //private void OnTriggerEnter(Collider other)
