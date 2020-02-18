@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Place_Frog : MonoBehaviour
 {
@@ -16,20 +17,35 @@ public class Place_Frog : MonoBehaviour
     public GameObject BluePose;
     public GameObject PinkPose;
 
+    public GameObject endScreen, endButton;
+
     ParticleSystem particle;
     Friend_Status friend;
 
 
-    bool green, red, blue, yellow, pink;
+    bool green, red, blue, yellow, pink, finished = false;
 
     Pick_up pick;
+
+    private void Start()
+    {
+        endScreen.SetActive(false);
+        endButton.SetActive(false);
+    }
 
     private void Update()
     {
         if(green == true && red == true && blue == true &&  yellow == true && pink == true)
         {
+            finished = true;
+        }
+
+        if(finished == true)
+        {
             Debug.Log("YouWin");
             //YOU WIN!
+            endScreen.SetActive(true);
+            endButton.SetActive(true);
         }
     }
 
@@ -110,5 +126,10 @@ public class Place_Frog : MonoBehaviour
                 //nothing
             }
         }
+    }
+
+    public void ReturnHome()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 }
