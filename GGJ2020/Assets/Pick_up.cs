@@ -14,6 +14,7 @@ public class Pick_up : MonoBehaviour
     public bool pickupL;
     public bool pickupR;
     BoxCollider box;
+    CapsuleCollider capsule;
     public bool in_hand;
     public bool dropL;
     public bool dropR;
@@ -37,6 +38,7 @@ public class Pick_up : MonoBehaviour
        
         box = GetComponent<BoxCollider>();
         rigidbody = GetComponent<Rigidbody>();
+        capsule = GetComponent<CapsuleCollider>();
     }
 
     // Update is called once per frame
@@ -47,6 +49,7 @@ public class Pick_up : MonoBehaviour
         if (dropL == true && pickupL == false)
         {
             box.enabled = true;
+            capsule.enabled = true;
             rigidbody.useGravity = true;
             rigidbody.isKinematic = false;
             transform.parent = null;
@@ -64,6 +67,7 @@ public class Pick_up : MonoBehaviour
         {
            
             box.enabled = true;
+            capsule.enabled = true;
             rigidbody.useGravity = true;
             rigidbody.isKinematic = false;
             transform.parent = null;
@@ -86,6 +90,7 @@ public class Pick_up : MonoBehaviour
             transform.localScale = pickup_scale;
             pickupL = false;
             box.enabled = false;
+            capsule.enabled = false;
             rigidbody.isKinematic = true;
             rigidbody.useGravity = false;
             in_hand = true;
@@ -104,6 +109,7 @@ public class Pick_up : MonoBehaviour
             transform.localScale = pickup_scale;
             pickupR = false;
             box.enabled = false;
+            capsule.enabled = false;
             rigidbody.isKinematic = true;
             rigidbody.useGravity = false;
             in_hand = true;
