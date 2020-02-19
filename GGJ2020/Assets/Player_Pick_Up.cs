@@ -10,11 +10,11 @@ public class Player_Pick_Up : MonoBehaviour
     public GameObject leftItem;
     public GameObject RightItem;
     GameObject collisonItem;
-    bool player_PU;
-    bool player_Place;
-    bool hands_full;
-    bool left_hand_full;
-    bool right_hand_full;
+    public bool player_PU;
+    public bool player_Place;
+    public bool hands_full;
+    public bool left_hand_full;
+   public bool right_hand_full;
     // Start is called before the first frame update
     void Start()
     {
@@ -40,7 +40,7 @@ public class Player_Pick_Up : MonoBehaviour
 
                     collisonItem = null;
                     pick_Up = null;
-
+                    leftItem = null;
                     player_PU = false;
 
 
@@ -50,11 +50,15 @@ public class Player_Pick_Up : MonoBehaviour
                 {
                     if (left_hand_full == false)
                     {
-                        leftItem = collisonItem;
-                        pick_Up = leftItem.GetComponent<Pick_up>();
-                        pick_Up.pickupL = true;
-                        player_PU = false;
-                        left_hand_full = true;
+                        if(collisonItem != RightItem)
+                        {
+                            leftItem = collisonItem;
+                            pick_Up = leftItem.GetComponent<Pick_up>();
+                            pick_Up.pickupL = true;
+                            player_PU = false;
+                            left_hand_full = true;
+                        }
+                        
 
                         //if (collisonItem.GetComponent<GiveBack>() != null)
                         //{
@@ -89,7 +93,7 @@ public class Player_Pick_Up : MonoBehaviour
                     right_hand_full = false;
                     collisonItem = null;
                     pick_Up = null;
-
+                    RightItem = null;
                     player_PU = false;
                 }
 
@@ -98,12 +102,15 @@ public class Player_Pick_Up : MonoBehaviour
 
                     if (right_hand_full == false)
                     {
-                        RightItem = collisonItem;
-                        pick_Up = RightItem.GetComponent<Pick_up>();
-                        pick_Up.pickupR = true;
-                        player_PU = false;
-                        right_hand_full = true;
+                        if (collisonItem != leftItem)
+                        {
+                            RightItem = collisonItem;
+                            pick_Up = RightItem.GetComponent<Pick_up>();
+                            pick_Up.pickupR = true;
+                            player_PU = false;
+                            right_hand_full = true;
 
+                        }
                         //if(collisonItem.GetComponent<GiveBack>() != null)
                         //{
                         //    p_giveBack = collisonItem.GetComponent<Player_GiveBack>();
